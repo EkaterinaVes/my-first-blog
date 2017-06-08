@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myblog',
-    'disqus',
     'django.contrib.sites',
 ]
 
@@ -122,9 +121,6 @@ SITE_ID = 1
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-DISQUS_API_KEY = 'l43Twrw74ReWxExytMDQOMi6lAhSwlgjP90tEpNNgHsdYFBd51VcgsSh0vTX1QT6'
-DISQUS_WEBSITE_SHORTNAME = 'vesnck'
 
 LOGIN_URL = reverse_lazy('login')
 LOGIN_REDIRECT_URL = reverse_lazy('post_list')
