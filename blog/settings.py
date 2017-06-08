@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-
+from django.core.urlresolvers import reverse_lazy
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myblog'
+    'myblog',
+    'disqus',
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -114,9 +116,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+SITE_ID = 1
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+DISQUS_API_KEY = 'l43Twrw74ReWxExytMDQOMi6lAhSwlgjP90tEpNNgHsdYFBd51VcgsSh0vTX1QT6'
+DISQUS_WEBSITE_SHORTNAME = 'vesnck'
+
+LOGIN_URL = reverse_lazy('login')
+LOGIN_REDIRECT_URL = reverse_lazy('post_list')

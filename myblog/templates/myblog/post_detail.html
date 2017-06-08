@@ -1,4 +1,4 @@
-{% extends 'myblog/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
     <div class="post">
@@ -9,6 +9,11 @@
         {% endif %}
         <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <p style="font-size: 17px;font-family:'Forum'; background-color: #FFE4E1; border: 1px dotted;" >{{ post.text|linebreaksbr }}</p>
     </div>
+    <p>
+    {% load disqus_tags %}
+    {% disqus_dev %}
+    {% disqus_show_comments %}
+</p>
 {% endblock %}

@@ -1,8 +1,8 @@
- {% extends 'myblog/base.html' %}
+ {% extends 'base.html' %}
 
 {% block content %}
     <h1>New post</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
+    <form style="font-size: 17px; background-color: #FFE4E1; border: 1px dotted;" method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>

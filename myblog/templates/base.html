@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <html>
         <head>
-            <title>Vesnck blog</title>
+            <title>{{request.user}} blog</title>
              <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
              <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
              <link rel="stylesheet" href="{% static 'css/blog.css' %}">
@@ -10,9 +10,16 @@
         <body>
             <div class="page-header">
                 {% if user.is_authenticated %}
+                    <h2  style="font-size: 36px;"; align="center";> Hello, {{request.user}}!</h2>
+                    <a href="{% url 'logout' %}" class="top-menu"><span class="glyphicon glyphicon-log-out"></span></a>
                     <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                {%else%}
+                    <a href="{% url 'Sign up!' %}" class="top-menu"><span class="glyphicon glyphicon-plus-sign"></span></a>
+                    <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
+
+
                 {% endif %}
-                <h1><a href="/">Vesnck Blog</a></h1>
+                <h1><a href="/">Your Blog</a></h1>
             </div>
             <div class="content container">
                 <div class="row">
